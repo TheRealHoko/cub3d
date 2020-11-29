@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:52:56 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/28 16:52:38 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/29 17:21:38 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*ldst;
 	unsigned char	*lsrc;
 
+	if (!dst && !src)
+		return (NULL);
 	ndst = (unsigned char *)dst;
 	nsrc = (unsigned char *)src;
 	if (ndst < nsrc)

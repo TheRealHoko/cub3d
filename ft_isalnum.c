@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:49:23 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/17 17:49:25 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/29 17:11:29 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	return (0);
 }
