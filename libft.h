@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/29 15:57:55 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/29 17:44:16 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef	struct		s_list
 
 t_list				*ft_lstnew(void	*content);
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void (*f)(void *), \
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void*));
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
