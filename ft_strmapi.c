@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:42:41 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/28 16:44:37 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/30 17:20:01 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (!(new_s = malloc(sizeof(char) * (ft_strlen(s) + 1))))
 		return (NULL);
 	while (s[i] != 0)
