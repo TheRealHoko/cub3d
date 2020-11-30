@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2020/11/29 17:13:22 by jzeybel          ###   ########.fr        #
+#    Updated: 2020/11/30 17:38:27 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,14 +34,12 @@ OBJ = $(SRC:.c=.o)
 OBJ_BON = $(BONUS:.c=.o)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 all : $(NAME)
 
 bonus : $(NAME) $(OBJ_BON)
-	ar rc $(NAME) $(OBJ_BON)
-	ranlib $(NAME)
+	ar rcs $(NAME) $(OBJ_BON)
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
