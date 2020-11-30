@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 19:17:43 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/21 04:21:18 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/30 16:44:12 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s != fd && *s != '\0')
-		ft_putchar_fd(*s++, fd);
+	if (s)
+		write(fd, s, ft_strlen(s));
 }

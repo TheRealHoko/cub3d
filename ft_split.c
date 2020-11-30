@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:57:34 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/29 17:20:41 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/11/30 17:17:28 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static	int		count_tab(char const *s, char c)
 
 	s_witch = 0;
 	count = 0;
+	if (!s)
+		return (0);
 	while (*s)
 	{
 		if (s_witch == 1 && *s == c)
