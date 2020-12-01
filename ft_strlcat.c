@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:07:46 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/23 16:20:06 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/01 18:05:00 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	len = ft_strlen(dst) + ft_strlen(src);
 	while (dst[i])
 		i++;
-	if (i > size)
-		return (size + ft_strlen((char *)src));
+	if (i > size || size == 0)
+		return (size + ft_strlen(src));
 	while (src[j] != 0 && (j + i < size - 1))
 	{
 		dst[j + i] = src[j];

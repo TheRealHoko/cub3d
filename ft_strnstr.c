@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:08:37 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/25 18:25:00 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/01 14:20:59 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ char	*ft_strnstr(const char *big, const char *find, size_t len)
 	while (i < len && big[i])
 	{
 		j = 0;
-		while (find[j] && (big[i] == find[j] && i < len))
-		{
-			if (find[j + 1] == '\0')
-				return ((char *)&big[i - j]);
+		while (big[i + j] && (big[i + j] == find[j] && i + j < len))
 			j++;
-			i++;
-		}
+		if (find[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (0);
