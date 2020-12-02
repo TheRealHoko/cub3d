@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:52:56 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/29 17:21:38 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/02 18:21:49 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		ldst = ndst + (len - 1);
 		lsrc = nsrc + (len - 1);
-		while (len--)
+		while (len-- > 0)
 			*ldst-- = *lsrc--;
 	}
 	return (dst);
