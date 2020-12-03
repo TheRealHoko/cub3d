@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:07:05 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/12/02 18:23:06 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/03 17:30:25 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*ss;
+	unsigned char	*ss;
 
-	ss = (char *)s;
+	ss = (unsigned char *)s;
 	while (*ss != c && *ss != '\0')
 		ss++;
 	if (*ss == c)
-		return (ss);
+		return ((char *)ss);
 	return (NULL);
 }
