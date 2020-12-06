@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:09:13 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/30 17:25:30 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/06 21:36:52 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (ft_ischarset(s1[i], set))
 		i++;
-	while (ft_ischarset(s1[j], set))
+	while (ft_ischarset(s1[j], set) && j > 0)
 		j--;
 	if (i >= j)
 		return (ft_strdup(""));
