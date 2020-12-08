@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:09:28 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/12/08 19:23:29 by jzeybel          ###   ########.fr       */
+/*   Updated: 2020/12/08 19:51:55 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@ char	*ft_substr(char	const *s, unsigned int start, size_t len)
 {
 	char			*new_s;
 	unsigned int	i;
+	unsigned int	maxlen;
 
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	if (!(new_s = malloc(sizeof(char) * (len + 1))))
+	maxlen = start;
+	i = 0;
+	while (s[maxlen++] != '\0' && i < len)
+		i++;
+	if (!(new_s = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	i = 0;
 	while (len-- && s[start])
