@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2020/12/03 17:54:28 by jzeybel          ###   ########.fr        #
+#    Updated: 2020/12/08 17:23:24 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,4 +52,4 @@ fclean : clean
 
 re : fclean $(NAME)
 
-.PHONY : $(NAME) all bonus clean fclean re 
+.PHONY :  all bonus clean fclean re 
