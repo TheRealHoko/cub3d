@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:07:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/30 17:11:02 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/06 19:09:49 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1) + 1;
-	if (!(s = malloc(sizeof(char) * len)))
+	s = malloc(sizeof(char) * len);
+	if (!s)
 		return (NULL);
 	ft_strlcpy(s, s1, len);
 	return (s);
