@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:57:34 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/30 17:17:28 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/07 18:42:50 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ char			**ft_split(char const *s, char c)
 
 	i = 0;
 	k = count_tab(s, c);
-	if (!(new_s = malloc(sizeof(new_s) * (k + 1))))
+	new_s = malloc(sizeof(new_s) * (k + 1));
+	if (!new_s)
 		return (NULL);
 	while (k--)
 	{
 		while (*s == c)
 			s++;
-		if (!(new_s[i] = ft_substr(s, 0, count_words(s, c))))
+		new_s[i] = ft_substr(s, 0, count_words(s, c));
+		if (!new_s[i])
 			return (free_tab(new_s, i));
 		i++;
 		s += count_words(s, c);

@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:07:30 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/30 15:35:23 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/07 18:43:32 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(new_s = malloc(sizeof(new_s) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	new_s = malloc(sizeof(new_s) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new_s)
 		return (NULL);
 	i = 0;
 	j = 0;
