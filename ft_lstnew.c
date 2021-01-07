@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:25:51 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/07 18:44:39 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/07 18:51:34 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_elem;
+
 	new_elem = malloc(sizeof(t_list));
 	if (!new_elem)
 		return (NULL);
