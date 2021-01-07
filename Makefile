@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2020/12/08 17:23:24 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/01/07 19:56:28 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,40 +16,68 @@ CC  = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_atoi.c ft_isdigit.c ft_memchr.c ft_putchar_fd.c ft_putstr_fd.c \
-	  ft_strlen.c ft_tolower.c ft_bzero.c ft_memcmp.c ft_putendl_fd.c \
-	  ft_strchr.c ft_strncmp.c ft_toupper.c ft_calloc.c ft_isprint.c \
-	  ft_memcpy.c ft_strdup.c ft_strnstr.c ft_isalnum.c ft_memmove.c \
-	  ft_putnbr_fd.c ft_strjoin.c ft_strrchr.c ft_isalpha.c ft_memset.c \
-	  ft_strlcat.c ft_strtrim.c ft_isascii.c ft_memccpy.c ft_strlcpy.c \
-	  ft_substr.c ft_strmapi.c ft_itoa.c ft_split.c
-
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-		ft_lstadd_back.c ft_lstiter.c ft_lstdelone.c ft_lstclear.c ft_lstmap.c
+SRC = std/ft_atoi.c \
+	  std/ft_calloc.c \
+	  std/ft_itoa.c \
+	  ctype/ft_isdigit.c \
+	  ctype/ft_tolower.c \
+	  ctype/ft_toupper.c \
+	  ctype/ft_isprint.c \
+	  ctype/ft_isalnum.c \
+	  ctype/ft_isalpha.c \
+	  ctype/ft_isascii.c \
+	  put/ft_putchar_fd.c \
+	  put/ft_putstr_fd.c \
+	  put/ft_putendl_fd.c \
+	  put/ft_putnbr_fd.c \
+	  str/ft_memchr.c \
+	  str/ft_strlen.c \
+	  str/ft_split.c \
+	  str/ft_bzero.c \
+	  str/ft_memcmp.c \
+	  str/ft_strchr.c \
+	  str/ft_strncmp.c \
+	  str/ft_memcpy.c \
+	  str/ft_strdup.c \
+	  str/ft_strnstr.c \
+	  str/ft_memmove.c \
+	  str/ft_strjoin.c \
+	  str/ft_strrchr.c \
+	  str/ft_memset.c \
+	  str/ft_strlcat.c \
+	  str/ft_strtrim.c \
+	  str/ft_memccpy.c \
+	  str/ft_strlcpy.c \
+	  str/ft_substr.c \
+	  str/ft_strmapi.c \
+	  lst/ft_lstnew.c \
+	  lst/ft_lstadd_front.c \
+	  lst/ft_lstsize.c \
+	  lst/ft_lstlast.c \
+	  lst/ft_lstadd_back.c \
+	  lst/ft_lstiter.c \
+	  lst/ft_lstdelone.c \
+	  lst/ft_lstclear.c \
+	  lst/ft_lstmap.c
 
 HEADERS = libft.h
 
 OBJ = $(SRC:.c=.o)
-
-OBJ_BON = $(BONUS:.c=.o)
 
 $(NAME) : $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 all : $(NAME)
 
-bonus : $(NAME) $(OBJ_BON)
-	ar rcs $(NAME) $(OBJ_BON)
-
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm -f $(OBJ) $(OBJ_BON)
+	rm -f $(OBJ)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean $(NAME)
 
-.PHONY :  all bonus clean fclean re 
+.PHONY :  all clean fclean re 
