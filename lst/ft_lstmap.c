@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 22:11:43 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/07 19:59:25 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/08 13:18:25 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&new_l, del);
 			return (NULL);
 		}
-		if (!(new_elem = ft_lst_new(tmp)))
+		if (!(new_elem = ft_lstnew(tmp)))
 		{
 			ft_lstclear(&new_l, del);
 			del(tmp);
