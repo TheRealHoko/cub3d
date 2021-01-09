@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/01/07 19:56:28 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/01/09 19:31:53 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC = std/ft_atoi.c \
 	  put/ft_putstr_fd.c \
 	  put/ft_putendl_fd.c \
 	  put/ft_putnbr_fd.c \
+	  put/ft_putbase_fd.c \
 	  str/ft_memchr.c \
 	  str/ft_strlen.c \
 	  str/ft_split.c \
