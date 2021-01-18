@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/01/09 19:31:53 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/01/15 17:30:00 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ CC  = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = std/ft_atoi.c \
+SRC = std/ft_atoll.c \
 	  std/ft_calloc.c \
-	  std/ft_itoa.c \
+	  std/ft_lltoa.c \
+	  std/ft_ulltoa_base.c \
 	  ctype/ft_isdigit.c \
 	  ctype/ft_tolower.c \
 	  ctype/ft_toupper.c \

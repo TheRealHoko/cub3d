@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:47:53 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/07 18:37:48 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/14 18:25:17 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static	int	ft_isspace(int c)
 	return (0);
 }
 
-int			ft_atoi(const char *str)
+long long	ft_atoll(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	long long	i;
+	long long	sign;
+	long long	res;
 
 	i = 0;
 	sign = 1;

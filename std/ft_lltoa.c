@@ -6,19 +6,19 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 18:02:53 by jzeybel           #+#    #+#             */
-/*   Updated: 2020/11/28 16:43:17 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/14 18:13:53 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_lltoa(long long n)
 {
 	int		sign;
 	int		size;
 	char	*array;
-	long	nn;
-	long	p;
+	unsigned long long	nn;
+	unsigned long long	p;
 
 	sign = (n < 0) ? -1 : 1;
 	size = (n < 0) ? 2 : 1;
