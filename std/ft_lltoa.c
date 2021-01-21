@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 18:02:53 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/14 18:13:53 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/21 13:16:51 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_lltoa(long long n)
 {
 	int		sign;
 	int		size;
-	char	*array;
+	static char	array[50];
 	unsigned long long	nn;
 	unsigned long long	p;
 
@@ -29,8 +29,6 @@ char	*ft_lltoa(long long n)
 		p = p * 10;
 		size++;
 	}
-	if (!(array = malloc(sizeof(char) * (size + 1))))
-		return (NULL);
 	nn *= sign;
 	size = (sign < 0) ? 1 : 0;
 	while (p /= 10)

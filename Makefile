@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/01/15 17:30:00 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/01/21 13:29:46 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,9 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
+debug : CFLAGS += -g -fsanitize=address
+debug : all
+
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -82,4 +85,6 @@ fclean : clean
 
 re : fclean $(NAME)
 
-.PHONY :  all clean fclean re 
+redebug : fclean debug
+
+.PHONY :  all debug redebug clean fclean re 
