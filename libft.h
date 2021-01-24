@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/15 17:39:28 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/24 16:01:56 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void				ft_putchar_fd(char c, int fd);
 int					ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(long long int n, int fd);
-void				ft_putbase_fd(unsigned long n, char *base, size_t size, int fd);
+void				ft_putbase_fd(unsigned long n, char *base, \
+						size_t size, int fd);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_lltoa(long long n);
 char				*ft_ulltoa_base(unsigned long long n, char *base);
