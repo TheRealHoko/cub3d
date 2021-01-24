@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:32:47 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/21 13:39:02 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/24 16:05:23 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static int	ft_len(unsigned long long n, int size)
 {
 	int i;
-	
+
 	i = 1;
 	while (n /= size)
 		i++;
 	return (i);
 }
 
-char	*ft_ulltoa_base(unsigned long long n, char *base)
+char		*ft_ulltoa_base(unsigned long long n, char *base)
 {
-	int	lenb;
-	int len;
-	int i;
+	int			lenb;
+	int			len;
+	int			i;
 	static char	array[50];
 
 	if ((long long)n < 0)
