@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 18:02:53 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/21 13:16:51 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/24 16:03:27 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_lltoa(long long n)
 {
-	int		sign;
-	int		size;
-	static char	array[50];
+	int					sign;
+	int					size;
+	static char			array[50];
 	unsigned long long	nn;
 	unsigned long long	p;
 
