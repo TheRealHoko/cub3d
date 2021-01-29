@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/25 17:39:03 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/01/29 16:15:21 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t				ft_strlen(const char *s);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
-int					ft_isdigit_one(int c);
+int					ft_isrange(int i, int e, int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
