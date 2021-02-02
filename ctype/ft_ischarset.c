@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_ischarset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 18:09:13 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/02 19:47:23 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/02/02 19:45:31 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/02/02 19:46:04 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char		*ft_strtrim(char const *s1, char const *set)
+int	ft_ischarset(char c, char const *s)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	if (!s1 || !set)
-		return (NULL);
-	j = ft_strlen(s1) - 1;
-	while (ft_ischarset(s1[i], set))
-		i++;
-	while (ft_ischarset(s1[j], set) && j > 0)
-		j--;
-	if (i >= j)
-		return (ft_strdup(""));
-	return (ft_substr(s1, i, j - i + 1));
+	while (*s)
+	{
+		if (c == *s)
+			return (1);
+		s++;
+	}
+	return (0);
 }

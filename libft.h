@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/29 16:15:21 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/02 19:59:26 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int					ft_isdigit(int c);
 int					ft_isrange(int i, int e, int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
+int					ft_ischarset(char c, char const *s);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
@@ -64,6 +65,7 @@ char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
+int					ft_strisset(const char *s, const char *set);
 void				ft_putchar_fd(char c, int fd);
 int					ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);

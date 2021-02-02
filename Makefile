@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/01/29 16:14:57 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/02 19:59:43 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = std/ft_atoll.c \
 	  ctype/ft_isalnum.c \
 	  ctype/ft_isalpha.c \
 	  ctype/ft_isascii.c \
+	  ctype/ft_ischarset.c \
 	  put/ft_putchar_fd.c \
 	  put/ft_putstr_fd.c \
 	  put/ft_putendl_fd.c \
@@ -40,6 +41,7 @@ SRC = std/ft_atoll.c \
 	  str/ft_memcmp.c \
 	  str/ft_strchr.c \
 	  str/ft_strncmp.c \
+	  str/ft_strisset.c \
 	  str/ft_memcpy.c \
 	  str/ft_strdup.c \
 	  str/ft_strnstr.c \
