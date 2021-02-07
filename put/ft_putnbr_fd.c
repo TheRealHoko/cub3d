@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:27:22 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/10 01:21:30 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/07 01:58:29 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(long long int n, int fd)
 {
-	unsigned long long int nn;
+	unsigned long long int	nn;
 
 	if (n >= 0 && n < 10)
 		ft_putchar_fd(n + 48, fd);

@@ -6,13 +6,13 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:09:13 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/02 19:47:23 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/07 01:55:47 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	i;
 	int	j;

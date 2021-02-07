@@ -6,13 +6,13 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:57:34 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/07 18:42:50 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/07 01:56:42 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static	int		count_tab(char const *s, char c)
+static int	count_tab(char const *s, char c)
 {
 	int	count;
 	int	s_witch;
@@ -35,7 +35,7 @@ static	int		count_tab(char const *s, char c)
 	return (count);
 }
 
-static	int		count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	count;
 
@@ -48,7 +48,7 @@ static	int		count_words(char const *s, char c)
 	return (count);
 }
 
-static	char	**free_tab(char **tab, int i)
+static char	**free_tab(char **tab, int i)
 {
 	while (i--)
 		free(tab[i]);
@@ -56,7 +56,7 @@ static	char	**free_tab(char **tab, int i)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		k;
