@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/02 19:59:43 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/15 19:20:02 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,9 +63,9 @@ SRC = std/ft_atoll.c \
 	  lst/ft_lstiter.c \
 	  lst/ft_lstdelone.c \
 	  lst/ft_lstclear.c \
-	  lst/ft_lstmap.c
-
-HEADERS = libft.h
+	  lst/ft_lstmap.c \
+	  gnl/get_next_line.c \
+	  gnl/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
