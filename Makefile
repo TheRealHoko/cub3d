@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/15 22:13:58 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/15 22:17:13 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ DBRULE =
 OBJ = $(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	make -C libft $(DBRULE)
+	make -C libft/ $(DBRULE)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 
 all : $(NAME)

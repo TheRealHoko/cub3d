@@ -6,11 +6,11 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/15 22:15:38 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/15 22:17:43 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft/inc/libft.h"
 #include <stdio.h>
 #include <mlx.h>
 
