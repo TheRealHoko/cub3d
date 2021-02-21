@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/15 22:17:43 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/02/16 18:17:48 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/02/16 18:23:20 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/inc/libft.h"
+#include "libft.h"
+#include "get_next_line.h"
+#include "parser.h"
+#include "mlx.h"
 #include <stdio.h>
-#include <mlx.h>
-
-int	main()
-{
-	printf("Hello World!!\n");
-	return(0);
-}
+#include <math.h>
