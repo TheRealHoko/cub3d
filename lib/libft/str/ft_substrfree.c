@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substrfree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 18:07:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 12:58:36 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/02/21 12:54:11 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/02/21 12:54:53 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_substrfree(char *s, size_t start, size_t len, int tofree)
 {
-	char	*s;
-	size_t	len;
+	char			*new_s;
+	unsigned int	i;
+	unsigned int	maxlen;
 
-	len = ft_strlen(s1);
-	s = malloc(sizeof(char) * (len + 1));
 	if (!s)
 		return (NULL);
-	while (len-- && (*s1 != '\0'))
-		*s++ = *s1++;
-	*s = '\0';
-	return (s);
+	maxlen = start;
+	i = 0;
+	while (s[maxlen++] != '\0' && i < len)
+		i++;
+	new_s = malloc(sizeof(char) * (len + 1));
+	if (!new_s)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start])
+		new_s[i++] = s[start++];
+	new_s[i] = '\0';
+	if (tofree)
+		free(s);
+	return (new_s);
 }

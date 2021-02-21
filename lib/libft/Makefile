@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/15 19:20:02 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/21 13:02:43 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC = std/ft_atoll.c \
 	  str/ft_bzero.c \
 	  str/ft_memcmp.c \
 	  str/ft_strchr.c \
+	  str/ft_strchri.c \
 	  str/ft_strncmp.c \
 	  str/ft_strisset.c \
 	  str/ft_memcpy.c \
@@ -47,6 +48,7 @@ SRC = std/ft_atoll.c \
 	  str/ft_strnstr.c \
 	  str/ft_memmove.c \
 	  str/ft_strjoin.c \
+	  str/ft_strjoinfree.c \
 	  str/ft_strrchr.c \
 	  str/ft_memset.c \
 	  str/ft_strlcat.c \
@@ -54,7 +56,9 @@ SRC = std/ft_atoll.c \
 	  str/ft_memccpy.c \
 	  str/ft_strlcpy.c \
 	  str/ft_substr.c \
+	  str/ft_substrfree.c \
 	  str/ft_strmapi.c \
+	  str/get_next_line.c \
 	  lst/ft_lstnew.c \
 	  lst/ft_lstadd_front.c \
 	  lst/ft_lstsize.c \
@@ -64,8 +68,6 @@ SRC = std/ft_atoll.c \
 	  lst/ft_lstdelone.c \
 	  lst/ft_lstclear.c \
 	  lst/ft_lstmap.c \
-	  gnl/get_next_line.c \
-	  gnl/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
