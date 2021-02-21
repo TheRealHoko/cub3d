@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/16 18:29:59 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/21 18:31:47 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ debug : all
 
 $(TMP)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(TMP)
-	$(CC) -g -I $(INC) -o $@ -c $<
+	mkdir -p $(TMP)/$(PARSE_DIR)
+	$(CC) $(CFLAGS) -g -I $(INC) -o $@ -c $<
 
 norm :
 	norminette $(SRC_DIR)/

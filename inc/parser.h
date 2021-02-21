@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:43:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 18:04:10 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/21 18:32:11 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define PARSER_H
 
 # include <fcntl.h>
-# include "libft.h"
 
-int	parser(char *s);
+int	*resparse(char *s);
 
 #endif
