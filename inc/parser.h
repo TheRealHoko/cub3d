@@ -6,11 +6,16 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:43:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/16 17:46:02 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/21 18:04:10 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
+#ifndef PARSER_H
+# define PARSER_H
+
+# include <fcntl.h>
+# include "libft.h"
 
 int	parser(char *s);
+
+#endif

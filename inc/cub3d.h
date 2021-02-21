@@ -6,13 +6,17 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 18:17:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/16 18:23:20 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/21 18:02:35 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
-#include "parser.h"
-#include "mlx.h"
-#include <stdio.h>
-#include <math.h>
+#ifndef CUB3D_H
+# define CUB3D_H
+
+# include "libft.h"
+# include "parser.h"
+# include "mlx.h"
+# include <stdio.h>
+# include <math.h>
+
+#endif

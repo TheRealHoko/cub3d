@@ -6,18 +6,18 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/16 18:22:22 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/21 18:06:09 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parser.h"
 
 int	parser(char	*s)
 {
 	int	fd;
 	char	*f;
 
-	fd = open(s, 0_RDONLY);
-	get_nex_line(fd, &s);
+	fd = open(s, O_RDONLY);
+	get_next_line(fd, &s);
 	close(fd);
 }
