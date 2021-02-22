@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 20:54:22 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/22 04:41:19 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 
 int	main(int ac, char	**av)
 {
-	int		*res;
+	t_parse	parse;
 	void	*mlx;
 	void	*window;
 
 	if (ac == 2)
-		res = resparse(av[1]);
+		ft_parse(av[1], &parse);
 	else
 		return (1);
 	mlx = mlx_init();
-	printf("----------%d-----%d------\n",res[0], res[1]); 
-	window = mlx_new_window(mlx, res[0], res[1], "cub3d");
+	printf("----------%d-----%d------\n",parse.res[0], parse.res[1]); 
+	printf("--%s--\n", parse.NO); 
+	window = mlx_new_window(mlx, parse.res[0], parse.res[1], "cub3d");
 	mlx_loop(mlx);
 	mlx_destroy_window(mlx, window);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 21:15:12 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/22 16:56:22 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	*resparse(char	*s)
+void	free_line(char **line)
+{
+	while (line)
+		free(*line);
+	line = 0;
+}
+
+void	*ft_parse(char *s, t_parse *parse)
 {
 	int			fd;
-	static int	res[2];
 	char		*f;
 	char		**line;
 	int			ret;
@@ -26,14 +32,33 @@ int	*resparse(char	*s)
 	ret = get_next_line(fd, &f);
 	while (ret == 1)
 	{
-		if (ft_strchri(f, 'R') > -1)
+		if (ft_strisset(f, "R"))
 		{
 			line = ft_split(f, ' ');
-			res[0] = ft_atoll(line[1]);
-			res[1] = ft_atoll(line[2]);
+			parse->res[0] = ft_atoll(line[1]);
+			parse->res[1] = ft_atoll(line[2]);
+			//free_line(line);
 		}
+		if (ft_strisset(f, "NO"))
+		{
+			line = ft_split(f, ' ');
+			parse->NO = line[1];
+			//free_line(line);
+		}
+		/*if (ft_strisset(f, "SO"))
+			return ;
+		if (ft_strisset(f, "WE"))
+			return ;
+		if (ft_strisset(f, "EA"))
+			return ;
+		if (ft_strisset(f, "S"))
+			return ;
+		if (ft_strisset(f, "F"))
+			return ;
+		if (ft_strisset(f, "C"))
+			return ;*/
 		ret = get_next_line(fd, &f);
 	}
 	close(fd);
-	return (res);
+	return (0);
 }

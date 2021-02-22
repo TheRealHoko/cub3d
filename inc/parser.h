@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:43:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 18:32:11 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/22 04:32:08 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 # include <fcntl.h>
 
-int	*resparse(char *s);
+typedef struct s_parse
+{
+	int		*res;
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	char	*S;
+	int		*F;
+	int		*C;
+}				t_parse;
+
+void	*ft_parse(char *s, t_parse *parse);
 
 #endif
