@@ -6,11 +6,12 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 18:46:53 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/24 19:48:05 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "libft.h"
 #include "parser.h"
 
 int	main(int ac, char	**av)
@@ -38,5 +39,8 @@ int	main(int ac, char	**av)
 	window = mlx_new_window(mlx, parse.res[0], parse.res[1], "cub3d");
 	mlx_loop(mlx);
 	mlx_destroy_window(mlx, window);
+	ft_free_list((void **)parse.res);
+	ft_free_list((void **)parse.F);
+	ft_free_list((void **)parse.C);
 	return (0);
 }
