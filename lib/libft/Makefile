@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/24 18:01:44 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/24 22:29:52 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC = std/ft_atoll.c \
 	  std/ft_calloc.c \
 	  std/ft_lltoa.c \
 	  std/ft_ulltoa_base.c \
-	  std/ft_free_list.c \
 	  ctype/ft_isdigit.c \
 	  ctype/ft_isrange.c \
 	  ctype/ft_tolower.c \

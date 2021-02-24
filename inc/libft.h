@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 18:34:21 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/24 22:30:24 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,4 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_lltoa(long long n);
 char				*ft_ulltoa_base(unsigned long long n, char *base);
 char				**ft_split(char const *s, char *c);
-void				**ft_free_list(void	**list);
 #endif

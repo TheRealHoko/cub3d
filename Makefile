@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/21 20:47:56 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/24 21:03:20 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 
 CC  = gcc	
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 SRC_DIR = src
 
@@ -44,14 +44,14 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
-debug : CFLAGS += -g -fsanitize=address
+debug : CFLAGS += -fsanitize=address
 debug : DBRULE += redebug
 debug : all
 
 $(TMP)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(TMP)
 	mkdir -p $(TMP)/$(PARSE_DIR)
-	$(CC) $(CFLAGS) -g -I $(INC) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INC) -o $@ -c $<
 
 norm :
 	norminette $(SRC_DIR)/
