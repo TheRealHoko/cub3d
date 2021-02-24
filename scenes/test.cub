@@ -1,3 +1,8 @@
-R 1920 1080
-
-NO ./textures/terro.jpg
+R 400 400
+NO ./textures/white.jpg
+SO ./textures/black.jpg
+WE ./textures/blue.jpg
+EA ./textures/red.jpg
+S ./sprites/terro.jpg
+F 0,255,255
+C 0,255,255

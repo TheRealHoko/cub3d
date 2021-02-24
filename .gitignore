@@ -1,4 +1,5 @@
 *.o
+*.swp
 cub3d
 tmp
 lib/minilibx-linux

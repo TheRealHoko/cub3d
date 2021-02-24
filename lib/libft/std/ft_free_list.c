@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_free_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 17:43:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 18:07:13 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/02/24 18:00:37 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/02/24 18:02:52 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "../inc/libft.h" 
 
-# include <fcntl.h>
-
-typedef struct s_parse
+void	*free_list(void	**list)
 {
-	int		*res;
-	char	*NO;
-	char	*SO;
-	char	*WE;
-	char	*EA;
-	char	*S;
-	int		*F;
-	int		*C;
-}				t_parse;
-
-void	*ft_parse(char *s, t_parse *parse);
-void	init_t_parse(t_parse *parse);
-
-#endif
+	int	i;
+	void	**k;
+	
+	i = 0;
+	k = list;
+	while (*k++)
+		i++;
+	while (i--)
+		free(list[i]);
+	free(list);
+	return (NULL);
+}
