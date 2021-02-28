@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:09:28 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/01/07 18:38:47 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/28 15:40:10 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char	const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
+		return (NULL);
 	maxlen = start;
 	i = 0;
 	while (s[maxlen++] != '\0' && i < len)

@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 22:28:34 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/28 15:35:02 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "libft.h"
-#include <stdio.h>
 
 void	init_t_parse(t_parse *parse)
 {
@@ -21,7 +20,7 @@ void	init_t_parse(t_parse *parse)
 	parse->C = malloc(sizeof(int) * 3);
 }
 
-void	*ft_parse(char *s, t_parse *parse)
+void	ft_parse(char *s, t_parse *parse)
 {
 	int			fd;
 	char		*delim;
@@ -62,11 +61,14 @@ void	*ft_parse(char *s, t_parse *parse)
 			parse->C[1] = ft_atoll(line[2]);
 			parse->C[2] = ft_atoll(line[3]);
 		}
+		else if (ft_strisset(f, "1"))
+		{
+			printf("map");
+		}
 		free(f);
 		free(line);
 		ret = get_next_line(fd, &f);
 	}
 	free(f);
 	close(fd);
-	return (0);
 }

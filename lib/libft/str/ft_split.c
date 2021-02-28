@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:57:34 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 18:43:42 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/28 15:31:01 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	count_words(char const *s, char *delim)
 	int	count;
 
 	count = 0;
-	while (!ft_ischarset(*s, delim) && *s != '\0')
+	while (!ft_ischarset(*s, delim) && (*s != '\0'))
 	{
 		count++;
 		s++;

@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 22:30:03 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/26 19:03:49 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct		s_list
 {

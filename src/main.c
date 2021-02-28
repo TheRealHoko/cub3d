@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/24 22:00:29 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/25 14:06:48 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int	main(int ac, char	**av)
 	printf("F = R[%d] G[%d] B[%d]\n", parse.F[0], parse.F[1], parse.F[2]); 
 	printf("C = R[%d] G[%d] B[%d]\n", parse.C[0], parse.C[1], parse.C[2]); 
 	window = mlx_new_window(mlx, parse.res[0], parse.res[1], "cub3d");
-	free(parse.res);
+	/*free(parse.res);
 	free(parse.NO);
 	free(parse.SO);
 	free(parse.WE);
 	free(parse.EA);
 	free(parse.F);
-	free(parse.C);
+	free(parse.C);*/
 	mlx_loop(mlx);
 	mlx_destroy_window(mlx, window);
 	return (0);
