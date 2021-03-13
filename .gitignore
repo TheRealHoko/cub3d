@@ -1,5 +1,11 @@
+#defaults
+
 *.o
 *.swp
+*.gch
+
+#file specific
+
 cub3d
 tmp
 lib/minilibx-linux
