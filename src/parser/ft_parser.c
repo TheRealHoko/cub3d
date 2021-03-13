@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/28 15:35:02 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/13 13:38:33 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,30 @@ void	init_t_parse(t_parse *parse)
 	parse->C = malloc(sizeof(int) * 3);
 }
 
+void	ft_map(char	*s, int i, t_parse *parse)
+{
+	int	fd;
+	int	ret;
+	int	j;
+	char	*f;
+
+	parse->map = malloc(sizeof(char *) * (i + 1));
+	j = 0;
+	if (!parse->map)
+		return ;
+	ret = 1;
+	fd = open(s, O_RDONLY);
+	while (ret > 0)
+	{
+		ret = get_next_line(fd, &f);
+		if (ft_strisset(f, "1"))
+			parse->map[j++] = ft_strdup(f);
+		free(f);
+	}
+	parse->map[j] = 0;
+	close(fd);
+}
+
 void	ft_parse(char *s, t_parse *parse)
 {
 	int			fd;
@@ -27,12 +51,15 @@ void	ft_parse(char *s, t_parse *parse)
 	char		**line;
 	char		*f;
 	int			ret;
+	int			i;
 
 	fd = open(s, O_RDONLY);
-	ret = get_next_line(fd, &f);
+	ret = 1;
 	delim = " \t,";
-	while (ret == 1)
+	i = 0;
+	while (ret > 0)
 	{
+		ret = get_next_line(fd, &f);
 		line = ft_split(f, delim);
 		if (ft_strnstr(f, "R", ft_strlen(f)))
 		{
@@ -61,14 +88,11 @@ void	ft_parse(char *s, t_parse *parse)
 			parse->C[1] = ft_atoll(line[2]);
 			parse->C[2] = ft_atoll(line[3]);
 		}
-		else if (ft_strisset(f, "1"))
-		{
-			printf("map");
-		}
+		else if (ft_strisset(f, "012NSEW") )
+			i++;
 		free(f);
 		free(line);
-		ret = get_next_line(fd, &f);
 	}
-	free(f);
 	close(fd);
+	ft_map(s, i, parse);
 }

@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/26 19:01:14 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/03/05 13:45:49 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ PARSE_DIR = parser
 
 SRC = main.c \
 	  $(PARSE_DIR)/ft_parser.c \
-	  $(PARSE_DIR)/ft_map_parser.c
 
 TMP = tmp
 

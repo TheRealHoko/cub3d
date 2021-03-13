@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/26 19:03:49 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/02/28 20:27:47 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # endif
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 4096
 # endif
 
 # include <unistd.h>
@@ -73,6 +73,7 @@ void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
 
 int					get_next_line(int fd, char **line);
+int					ft_getdelim(int fd, char **line, int delim);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_substrfree(char *s, size_t start, size_t len, \
 					int tofree);

@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/25 14:06:48 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/13 13:29:40 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,20 @@ int	main(int ac, char	**av)
 	printf("S = %s\n", parse.S);
 	printf("F = R[%d] G[%d] B[%d]\n", parse.F[0], parse.F[1], parse.F[2]); 
 	printf("C = R[%d] G[%d] B[%d]\n", parse.C[0], parse.C[1], parse.C[2]); 
+	while (*parse.map != 0)
+		printf("%s\n", *parse.map++);
 	window = mlx_new_window(mlx, parse.res[0], parse.res[1], "cub3d");
-	/*free(parse.res);
+	free(parse.res);
 	free(parse.NO);
 	free(parse.SO);
 	free(parse.WE);
 	free(parse.EA);
 	free(parse.F);
-	free(parse.C);*/
+	free(parse.C);
+	while (*parse.map)
+		free(*parse.map++);
 	mlx_loop(mlx);
 	mlx_destroy_window(mlx, window);
+	exit(0);
 	return (0);
 }

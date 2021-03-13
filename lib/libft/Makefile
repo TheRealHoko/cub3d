@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/24 22:29:52 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/02/28 20:21:59 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRC = std/ft_atoll.c \
 	  str/ft_substrfree.c \
 	  str/ft_strmapi.c \
 	  str/get_next_line.c \
+	  str/ft_getdelim.c \
 	  lst/ft_lstnew.c \
 	  lst/ft_lstadd_front.c \
 	  lst/ft_lstsize.c \

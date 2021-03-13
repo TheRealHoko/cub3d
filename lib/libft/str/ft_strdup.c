@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:07:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/21 12:58:36 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/12 18:53:13 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strdup(const char *s1)
 	s = malloc(sizeof(char) * (len + 1));
 	if (!s)
 		return (NULL);
-	while (len-- && (*s1 != '\0'))
-		*s++ = *s1++;
-	*s = '\0';
+	ft_memcpy(s, s1, len + 1);
 	return (s);
 }

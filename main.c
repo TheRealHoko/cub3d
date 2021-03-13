@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_parser.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/25 17:13:37 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/28 15:23:07 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/02/28 20:23:10 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/03/12 18:39:43 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
 #include "libft.h"
+#include <fcntl.h>
 
-void	ft_map_parser(char	*f, t_parse *parse)
+int	main()
 {
-	(void)f;
-	(void)parse;
+	char	*f;
+	char	*d;
+
+	f = "hi";
+	d = ft_strdup(f);
+	printf("%s\n", d);
+	return (0);
 }
