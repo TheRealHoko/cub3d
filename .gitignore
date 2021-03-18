@@ -6,6 +6,11 @@
 
 #file specific
 
+main
+main.c
 cub3d
 tmp
 lib/minilibx-linux
+
+#text editor specific
+.vscode
