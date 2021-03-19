@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/03/05 13:45:49 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/03/19 18:09:58 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = main.c \
 
 TMP = tmp
 
-INC = inc
+INC = -I./inc \
+	-I./lib/libft/inc
 
 LIB = lib
 
@@ -51,7 +52,7 @@ debug : all
 $(TMP)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(TMP)
 	mkdir -p $(TMP)/$(PARSE_DIR)
-	$(CC) $(CFLAGS) -I $(INC) -o $@ -c $<
+	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 norm :
 	norminette $(SRC_DIR)/

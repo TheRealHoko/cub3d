@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/02/28 20:21:59 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/03/19 18:02:59 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC  = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = std/ft_atoll.c \
+SRC = math/ft_pow.c \
+	  std/ft_atoll.c \
 	  std/ft_calloc.c \
 	  std/ft_lltoa.c \
 	  std/ft_ulltoa_base.c \
@@ -34,6 +35,7 @@ SRC = std/ft_atoll.c \
 	  put/ft_putendl_fd.c \
 	  put/ft_putnbr_fd.c \
 	  put/ft_putbase_fd.c \
+	  str/ft_tablen.c \
 	  str/ft_memchr.c \
 	  str/ft_strlen.c \
 	  str/ft_split.c \
@@ -81,7 +83,7 @@ debug : CFLAGS += -g -fsanitize=address
 debug : all
 
 .c.o :
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I./inc -c $< -o $@
 
 clean :
 	rm -f $(OBJ)
