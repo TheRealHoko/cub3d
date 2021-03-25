@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:10:10 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/02/28 20:27:47 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/24 01:34:34 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 
 typedef struct		s_list
 {
-	void			*content;
+	void			*data;
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_lstnew(void	*content);
+t_list				*ft_lstnew(void	*data);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void*));
@@ -41,6 +41,8 @@ void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
+void    			ft_del(void *data);
+void    			ft_lstprint(t_list *lst);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -50,6 +52,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
+size_t 				ft_tablen(char **tab);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -87,8 +90,11 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(long long int n, int fd);
 void				ft_putbase_fd(unsigned long n, char *base, \
 						size_t size, int fd);
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char				*ft_foreach(char const *s, char (*f)(unsigned int, char));
 char				*ft_lltoa(long long n);
 char				*ft_ulltoa_base(unsigned long long n, char *base);
 char				**ft_split(char const *s, char *c);
+size_t 				ft_freetab(char **tab, size_t size);
+
+long				ft_pow(int base, int exponent);
 #endif

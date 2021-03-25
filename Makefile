@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/03/19 18:09:58 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/03/25 18:38:02 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 
 CC  = gcc	
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src
 
@@ -22,6 +22,8 @@ PARSE_DIR = parser
 
 SRC = main.c \
 	  $(PARSE_DIR)/ft_parser.c \
+	  $(PARSE_DIR)/ft_res_texture_color.c \
+	  $(PARSE_DIR)/ft_checks.c \
 
 TMP = tmp
 
@@ -38,6 +40,7 @@ DBRULE =
 
 OBJ = $(addprefix $(TMP)/,$(SRC:.c=.o))
 
+#if bug check rule all in make of libft
 $(NAME) : $(OBJ)
 	make -C $(LIB)/libft $(DBRULE)
 	make -C $(LIB)/minilibx-linux
@@ -45,8 +48,8 @@ $(NAME) : $(OBJ)
 
 all : $(NAME)
 
-debug : CFLAGS += -fsanitize=address
-debug : DBRULE += redebug
+debug : CFLAGS += -g
+debug : DBRULE += debug
 debug : all
 
 $(TMP)/%.o : $(SRC_DIR)/%.c

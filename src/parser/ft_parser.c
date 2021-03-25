@@ -6,93 +6,62 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/13 13:38:33 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/25 23:13:30 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-#include "libft.h"
 
-void	init_t_parse(t_parse *parse)
+void	init_parse(t_parse *parse)
 {
-	parse->res = malloc(sizeof(int) * 2);
-	parse->F = malloc(sizeof(int) * 3);
-	parse->C = malloc(sizeof(int) * 3);
+	parse->res[0] = -1;
+	parse->res[1] = -1;
+	parse->NO = NULL;
+	parse->SO = NULL;
+	parse->WE = NULL;
+	parse->EA = NULL;
+	parse->S = NULL;
+	parse->F[0] = -1;
+	parse->F[1] = -1;
+	parse->F[2] = -1;
+	parse->C[0] = -1;
+	parse->C[1] = -1;
+	parse->C[2] = -1;
+	parse->map = NULL;
 }
 
-void	ft_map(char	*s, int i, t_parse *parse)
+void	ft_map(char	*line, t_parse *parse)
 {
-	int	fd;
-	int	ret;
-	int	j;
-	char	*f;
+	int		len;
 
-	parse->map = malloc(sizeof(char *) * (i + 1));
-	j = 0;
-	if (!parse->map)
-		return ;
-	ret = 1;
-	fd = open(s, O_RDONLY);
-	while (ret > 0)
+	len = ft_strlen(line);
+	if (!ft_strncmp(line + (len - 1), "1", 1))
 	{
-		ret = get_next_line(fd, &f);
-		if (ft_strisset(f, "1"))
-			parse->map[j++] = ft_strdup(f);
-		free(f);
+		printf("inmap\n");
+		ft_lstadd_back(&parse->map, ft_lstnew(ft_strdup(line)));
 	}
-	parse->map[j] = 0;
-	close(fd);
 }
 
-void	ft_parse(char *s, t_parse *parse)
+int	ft_parse(char *path, t_parse *parse)
 {
 	int			fd;
-	char		*delim;
-	char		**line;
-	char		*f;
+	char		*line;
 	int			ret;
-	int			i;
+	int			done;
 
-	fd = open(s, O_RDONLY);
+	fd = open(path, O_RDONLY);
 	ret = 1;
-	delim = " \t,";
-	i = 0;
-	while (ret > 0)
+	done = 0;
+	while (ret == 1)
 	{
-		ret = get_next_line(fd, &f);
-		line = ft_split(f, delim);
-		if (ft_strnstr(f, "R", ft_strlen(f)))
-		{
-			parse->res[0] = ft_atoll(line[1]);
-			parse->res[1] = ft_atoll(line[2]);
-		}
-		else if (ft_strnstr(f, "NO", ft_strlen(f)))
-			parse->NO = line[1];
-		else if (ft_strnstr(f, "SO", ft_strlen(f)))
-			parse->SO = line[1];
-		else if (ft_strnstr(f, "WE", ft_strlen(f)))
-			parse->WE = line[1];
-		else if (ft_strnstr(f, "EA", ft_strlen(f)))
-			parse->EA = line[1];
-		else if (ft_strnstr(f, "S", ft_strlen(f)))
-			parse->S = line[1];
-		else if (ft_strnstr(f, "F", ft_strlen(f)))
-		{
-			parse->F[0] = ft_atoll(line[1]);
-			parse->F[1] = ft_atoll(line[2]);
-			parse->F[2] = ft_atoll(line[3]);
-		}
-		else if (ft_strnstr(f, "C", ft_strlen(f)))
-		{
-			parse->C[0] = ft_atoll(line[1]);
-			parse->C[1] = ft_atoll(line[2]);
-			parse->C[2] = ft_atoll(line[3]);
-		}
-		else if (ft_strisset(f, "012NSEW") )
-			i++;
-		free(f);
+		ret = get_next_line(fd, &line);
+		done += ft_resolution(line, parse);
+		done += ft_sprites_textures(line, parse);
+		done += ft_colors(line, parse);
+		if (done == 8)
+			ft_map(line, parse);
 		free(line);
 	}
 	close(fd);
-	ft_map(s, i, parse);
+	return (0);
 }

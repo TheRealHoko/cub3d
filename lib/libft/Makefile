@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/03/19 18:02:59 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/03/25 18:38:38 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ NAME = libft.a
 CC  = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+
+TMP = tmp
+
+SRC_DIR = src
 
 SRC = math/ft_pow.c \
 	  std/ft_atoll.c \
@@ -36,6 +40,7 @@ SRC = math/ft_pow.c \
 	  put/ft_putnbr_fd.c \
 	  put/ft_putbase_fd.c \
 	  str/ft_tablen.c \
+	  str/ft_freetab.c \
 	  str/ft_memchr.c \
 	  str/ft_strlen.c \
 	  str/ft_split.c \
@@ -59,7 +64,7 @@ SRC = math/ft_pow.c \
 	  str/ft_strlcpy.c \
 	  str/ft_substr.c \
 	  str/ft_substrfree.c \
-	  str/ft_strmapi.c \
+	  str/ft_foreach.c \
 	  str/get_next_line.c \
 	  str/ft_getdelim.c \
 	  lst/ft_lstnew.c \
@@ -71,22 +76,32 @@ SRC = math/ft_pow.c \
 	  lst/ft_lstdelone.c \
 	  lst/ft_lstclear.c \
 	  lst/ft_lstmap.c \
+	  lst/ft_del.c \
+	  lst/ft_lstprint.c \
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix $(TMP)/,$(SRC:.c=.o))
 
-$(NAME) : $(OBJ)
+$(NAME) : mktmp $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 all : $(NAME)
 
-debug : CFLAGS += -g -fsanitize=address
+mktmp :
+	mkdir -p $(TMP)/math
+	mkdir -p $(TMP)/ctype
+	mkdir -p $(TMP)/lst
+	mkdir -p $(TMP)/put
+	mkdir -p $(TMP)/str
+	mkdir -p $(TMP)/std
+
+debug : CFLAGS += -g
 debug : all
 
-.c.o :
+$(TMP)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -I./inc -c $< -o $@
 
 clean :
-	rm -f $(OBJ)
+	rm -rf $(TMP)
 
 fclean : clean
 	rm -f $(NAME)
@@ -95,4 +110,4 @@ re : fclean $(NAME)
 
 redebug : fclean debug
 
-.PHONY :  all debug redebug clean fclean re 
+.PHONY :  all debug clean fclean re redebug
