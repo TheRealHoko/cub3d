@@ -1,6 +1,7 @@
 #defaults
 
 *.o
+*.out
 *.swp
 *.gch
 
