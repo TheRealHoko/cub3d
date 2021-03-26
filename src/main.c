@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/25 21:35:21 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/25 23:27:41 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int ft_checksave(char *param)
 	int	len;
 
 	len = ft_strlen(param);
-	if (!ft_strncmp(param, "-save", len) \
-		|| !ft_strncmp(param, "--save", len))
+	if (param && (!ft_strncmp(param, "-save", len) \
+		|| !ft_strncmp(param, "--save", len)))
 		return (1);
 	return (0);
 }
@@ -51,6 +51,7 @@ int	main(int ac, char	**av)
 	else
 		return (printf("Error : usage ./cub3d <map>.cub (--save)"));
 	mlx = mlx_init();
+	printf("save : %s\n", (parse.save) ? "yes" : "no");
 	printf("RES = %d %d\n", parse.res[0], parse.res[1]); 
 	printf("NO = %s\n", parse.NO); 
 	printf("SO = %s\n", parse.SO); 

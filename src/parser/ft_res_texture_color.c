@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 16:10:13 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/25 22:41:12 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/03/26 01:08:25 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	ft_resolution(char *line, t_parse *parse)
 {
 	int	tmp[2];
 	char	**split;
-	int		len;
+	int		tablen;
 
 	split = ft_split(line, DELIM);
-	len = ft_strlen(*split);
-	if (!ft_strncmp(*split, "R", len) && !ft_checkres(parse->res, 2))
+	tablen = ft_tablen(split);
+	if ((tablen == 3) && !ft_strncmp(*split, "R", 1) && !ft_checkres(parse->res, 2))
 	{
 		tmp[0] = ft_atoll(split[1]);
 		tmp[1] = ft_atoll(split[2]);
@@ -30,10 +30,10 @@ int	ft_resolution(char *line, t_parse *parse)
 			parse->res[0] = tmp[0];
 			parse->res[1] = tmp[1];
 		}
-		ft_freetab(split, ft_tablen(split));
+		ft_freetab(split, tablen);
 		return (1);
 	}
-	ft_freetab(split, ft_tablen(split));
+	ft_freetab(split, tablen);
 	return (0);
 }
 
