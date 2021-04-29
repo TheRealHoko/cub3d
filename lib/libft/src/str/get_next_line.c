@@ -6,61 +6,63 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 13:52:43 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/18 01:28:54 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_line(char **buf, char **line)
+static int	lastline(char **buffer, char **line)
 {
-	if (*buf)
-		*line = *buf;
+	if (*buffer)
+	{
+		*line = ft_strdup(*buffer);
+		if (!*line)
+			return (-1);
+	}
 	else
 	{
-		*line = malloc(sizeof(char) * 1);
+		*line = malloc(1);
 		if (!*line)
-			return (0);
-		*line[0] = '\0';
-	}
-	*buf = NULL;
-	return (1);
-}
-
-static int	retline(int chr, char **buf, char **line)
-{
-	*line = ft_substrfree(*buf, 0, chr, 0);
-	if (!*line)
-		return (0);
-	*buf = ft_substrfree(*buf, chr + 1, ft_strlen(*buf) - chr, 1);
-	if (!*buf)
-		return (0);
-	return (1);
-}
-
-int	get_next_line(int fd, char **line)
-{
-	static char	*buf[FD];
-	char		buffer[BUFFER_SIZE + 1];
-	int			ret;
-	int			chr;
-
-	ret = 1;
-	if (!line || fd < 0 || read(fd, 0, 0) || BUFFER_SIZE <= 0)
-		return (-1);
-	chr = ft_strchri(buf[fd], '\n');
-	while ((chr == -1) && (ret))
-	{
-		ret = read(fd, buffer, BUFFER_SIZE);
-		buffer[ret] = '\0';
-		buf[fd] = ft_strjoinfree(buf[fd], buffer);
-		if (!buf[fd])
 			return (-1);
-		chr = ft_strchri(buf[fd], '\n');
+		*line[0] = 0;
 	}
-	if (chr > -1)
-		return (retline(chr, &buf[fd], line));
-	if (!get_line(&buf[fd], line))
-		return (-1);
+	ft_free((void **)&(*buffer));
 	return (0);
+}
+
+static int	readline(int newline, char **buffer, char **line)
+{
+	*line = ft_substr(*buffer, 0, newline);
+	if (!*line)
+		return (-1);
+	*buffer = ft_substrfree(*buffer, newline + 1, BUFFER_SIZE);
+	if (!*buffer)
+		return (-1);
+	return (1);
+}
+
+int			get_next_line(int fd, char **line)
+{
+	static char	*buffer[FD];
+	char		buf[BUFFER_SIZE];
+	int			ret;
+	int			newline;
+
+	if (!line || fd < 0 || read(fd, 0, 0) || BUFFER_SIZE < 1)
+		return (-1);
+	newline = ft_strchri(buffer[fd], '\n');
+	ret = 1;
+	while ((newline < 0) && ret)
+	{
+		ret = read(fd, buf, BUFFER_SIZE);
+		buf[ret] = 0;
+		buffer[fd] = ft_strjoinfree(buffer[fd], buf);
+		if (!buffer[fd])
+			return (-1);
+		newline = ft_strchri(buffer[fd], '\n');
+	}
+	if (newline >= 0)
+		return (readline(newline, &buffer[fd], line));
+	return (lastline(&buffer[fd], line));
 }

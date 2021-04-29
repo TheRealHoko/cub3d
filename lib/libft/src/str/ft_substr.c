@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:09:28 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/15 15:09:28 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ char	*ft_substr(char	const *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	while (len-- && s[start])
-	{
-		new_s[i] = s[start++];
-		i++;
-	}
+		new_s[i++] = s[start++];
 	new_s[i] = '\0';
 	return (new_s);
 }

@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_issetdiff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 21:53:58 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/04/12 18:29:04 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/04/04 20:45:33 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/04/05 19:04:17 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_issetdiff(char *s, char *set, int len)
 {
-	t_list	*tmp;
+	int	i;
+	int	j;
+	int	k;
 
-	while (*lst != NULL)
+	i = 0;
+	k = 0;
+	while (i < len)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		j = 0;
+		while (set[j])
+		{
+			if (s[i] == set[j])
+				k++;
+			j++;
+		}
+		i++;
 	}
-	*lst = NULL;
+	if (k == len)
+		return (k);
+	return (0);
 }

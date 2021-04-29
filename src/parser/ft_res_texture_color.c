@@ -6,12 +6,11 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 16:10:13 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/26 01:08:25 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/19 15:40:13 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-#include "libft.h"
 
 int	ft_resolution(char *line, t_parse *parse)
 {
@@ -72,8 +71,8 @@ int	ft_colors(char *line, t_parse *parse)
 	split = ft_split(line, DELIM);
 	len = ft_strlen(*split);
 	if ((!ft_strncmp(*split, "F", len) || !ft_strncmp(*split, "C", len)) \
-		&& (!ft_checkres(parse->F, 3) \
-		|| !ft_checkres(parse->C, 3)))
+		&& (!ft_checkcolor(parse->F, 3) \
+		|| !ft_checkcolor(parse->C, 3)))
 	{
 		tmp[0] = ft_atoll(split[1]);
 		tmp[1] = ft_atoll(split[2]);

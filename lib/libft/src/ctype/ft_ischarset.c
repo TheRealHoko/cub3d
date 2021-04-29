@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 19:45:31 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/02 20:28:50 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	ft_ischarset(char c, char const *s)
 {
+	int	i;
+
+	i = 0;
 	while (s && *s)
 	{
 		if (c == *s)
-			return (1);
+			i++;
 		s++;
 	}
-	return (0);
+	return (i);
 }

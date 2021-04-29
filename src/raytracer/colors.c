@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 21:53:58 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/04/12 18:29:04 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/04/07 22:00:03 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/04/09 20:28:20 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	create_trgb(int t, int r, int g, int b)
 {
-	t_list	*tmp;
+	return (t << 24 | r << 16 | g << 8 | b);
+}
 
-	while (*lst != NULL)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
-	*lst = NULL;
+int	ft_get_r(int trgb)
+{
+	return (trgb & (0xFF << 16));
 }

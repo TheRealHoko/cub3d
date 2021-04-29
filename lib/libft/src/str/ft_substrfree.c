@@ -6,32 +6,29 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 12:54:11 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/17 23:30:12 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substrfree(char *s, size_t start, size_t len, int tofree)
+char	*ft_substrfree(char *s, size_t start, size_t len)
 {
 	char			*new_s;
-	unsigned int	i;
-	unsigned int	maxlen;
+	size_t			i;
 
-	if (!s)
+	i = ft_strlen(s);
+	if (!s || start > i)
 		return (NULL);
-	maxlen = start;
-	i = 0;
-	while (s[maxlen++] != '\0' && i < len)
-		i++;
+	if (i < start + len)
+		len = i - start;
 	new_s = malloc(sizeof(char) * (len + 1));
 	if (!new_s)
 		return (NULL);
-	i = 0;
-	while (i < len && s[start])
-		new_s[i++] = s[start++];
+	i = -1;
+	while (++i < len)
+		new_s[i] = s[start + i];
 	new_s[i] = '\0';
-	if (tofree)
-		free(s);
+	free(s);
 	return (new_s);
 }

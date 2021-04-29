@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstlencmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 21:53:58 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/04/12 18:29:04 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/04/21 19:09:46 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/04/22 00:19:35 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_lstlencmp(t_list *lst)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	while (*lst != NULL)
+	i = ft_strlen((char *)lst->data);
+	while (lst)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		if (lst->next && (i < ft_strlen((char *)lst->next->data)))
+			i = ft_strlen((char *)lst->next->data);
+		lst = lst->next;
 	}
-	*lst = NULL;
+	return (i);
 }

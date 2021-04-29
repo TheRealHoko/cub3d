@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:57:34 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/19 15:06:34 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	count_tab(char const *s, char *delim)
 		return (0);
 	while (*s)
 	{
-		if (s_witch == 1 && ft_ischarset(*s, delim))
+		if (s_witch && ft_ischarset(*s, delim))
 			s_witch = 0;
-		if (s_witch == 0 && !ft_ischarset(*s, delim))
+		if (!s_witch && !ft_ischarset(*s, delim))
 		{
 			count++;
 			s_witch = 1;
@@ -64,7 +64,7 @@ char		**ft_split(char const *s, char *delim)
 
 	i = 0;
 	k = count_tab(s, delim);
-	new_s = malloc(sizeof(new_s) * (k + 1));
+	new_s = malloc(sizeof(char *) * (k + 1));
 	if (!new_s)
 		return (NULL);
 	while (k--)

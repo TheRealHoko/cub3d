@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strisset.c                                      :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 19:50:15 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/03/22 23:30:48 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/04/12 18:16:22 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strisset(const char *s, const char *set)
+void    ft_free(void **data)
 {
-	while (s && *set)
-	{
-		if (ft_ischarset(*set, s))
-			return (1);
-		set++;
-	}
-	return (0);
+    if (data && *data)
+    {
+        free(*data);
+        *data = NULL;
+    }
 }

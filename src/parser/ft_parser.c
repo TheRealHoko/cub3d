@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 17:06:19 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/26 00:23:05 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/29 15:39:59 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,44 @@ void	init_parse(t_parse *parse)
 	parse->C[1] = -1;
 	parse->C[2] = -1;
 	parse->map = NULL;
+	parse->mapwidth = 0;
+	parse->mapheight = 0;
 }
 
-int	ft_map(char	*line, t_parse *parse)
+int	ft_tmpmap(char	*line, t_parse *parse, t_list **map)
 {
-	int		len;
-
-	len = ft_strlen(line);
-	if (!ft_strncmp(line + (len - 1), "1", 1))
+	if (ft_checkmap(line, parse))
 	{
-		ft_lstadd_back(&parse->map, ft_lstnew(ft_strdup(line)));
+		ft_lstadd_back(map, ft_lstnew(ft_strdup(line)));
 		return (1);
 	}
+	return (0);
+}
+
+int	ft_map(t_list *map, t_parse *parse)
+{
+	char	*tmp;
+	int		i;
+	int		j;
+
+	i = -1;
+	parse->map = malloc(sizeof(char *) * (parse->mapheight + 1));
+	while (++i < parse->mapheight)
+	{
+		tmp = map->data;
+		parse->map[i] = malloc(sizeof(char) * (ft_strlen(tmp) + 1));
+		j = -1;
+		while (tmp[++j])
+		{
+			if ((tmp[j] == ' ') || (tmp[j] == '1'))
+				parse->map[i][j] = '1';
+			else
+				parse->map[i][j] = tmp[j];
+		}
+		parse->map[i][j] = 0;
+		map = map->next;
+	}
+	parse->map[i] = 0;
 	return (0);
 }
 
@@ -48,24 +74,24 @@ int	ft_parse(char *path, t_parse *parse)
 	int			fd;
 	char		*line;
 	int			ret;
-	int			done;
+	t_list		*map;
 
 	fd = open(path, O_RDONLY);
 	ret = 1;
-	done = 0;
+	map = NULL;
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
-		if (done < 8)
-		{
-			done += ft_resolution(line, parse);
-			done += ft_sprites_textures(line, parse);
-			done += ft_colors(line, parse);
-		}
-		if (done >= 8)
-			done += ft_map(line, parse);
-		free(line);
+		ft_resolution(line, parse);
+		ft_sprites_textures(line, parse);
+		ft_colors(line, parse);
+		ft_tmpmap(line, parse, &map);
+		ft_free((void **)&line);
 	}
 	close(fd);
+	parse->mapheight = ft_lstsize(map);
+	parse->mapwidth = ft_lstlencmp(map);
+	ft_map(map, parse);
+	ft_lstclear(&map, ft_del);
 	return (0);
 }

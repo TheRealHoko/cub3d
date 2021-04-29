@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/03/25 18:38:38 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/04/21 19:12:01 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = math/ft_pow.c \
 	  ctype/ft_isalpha.c \
 	  ctype/ft_isascii.c \
 	  ctype/ft_ischarset.c \
+	  ctype/ft_issetdiff.c \
 	  put/ft_putchar_fd.c \
 	  put/ft_putstr_fd.c \
 	  put/ft_putendl_fd.c \
@@ -49,7 +50,6 @@ SRC = math/ft_pow.c \
 	  str/ft_strchr.c \
 	  str/ft_strchri.c \
 	  str/ft_strncmp.c \
-	  str/ft_strisset.c \
 	  str/ft_memcpy.c \
 	  str/ft_strdup.c \
 	  str/ft_strnstr.c \
@@ -67,6 +67,7 @@ SRC = math/ft_pow.c \
 	  str/ft_foreach.c \
 	  str/get_next_line.c \
 	  str/ft_getdelim.c \
+	  str/ft_free.c \
 	  lst/ft_lstnew.c \
 	  lst/ft_lstadd_front.c \
 	  lst/ft_lstsize.c \
@@ -76,8 +77,9 @@ SRC = math/ft_pow.c \
 	  lst/ft_lstdelone.c \
 	  lst/ft_lstclear.c \
 	  lst/ft_lstmap.c \
-	  lst/ft_del.c \
 	  lst/ft_lstprint.c \
+	  lst/ft_lstlencmp.c \
+	  lst/ft_del.c \
 
 OBJ = $(addprefix $(TMP)/,$(SRC:.c=.o))
 

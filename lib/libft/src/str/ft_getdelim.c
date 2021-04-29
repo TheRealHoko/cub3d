@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 13:52:43 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/19 18:06:01 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/04/15 15:24:58 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static int	get_line(char **buf, char **line)
 
 static int	retline(int chr, char **buf, char **line)
 {
-	*line = ft_substrfree(*buf, 0, chr, 0);
+	*line = ft_substr(*buf, 0, chr);
 	if (!*line)
 		return (0);
-	*buf = ft_substrfree(*buf, chr + 1, ft_strlen(*buf) - chr, 1);
+	*buf = ft_substrfree(*buf, chr + 1, ft_strlen(*buf) - chr);
 	if (!*buf)
 		return (0);
 	return (1);

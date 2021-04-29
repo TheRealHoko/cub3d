@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 23:30:48 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/03/24 01:42:16 by jzeybel          ###   ########.fr       */
+/*   Created: 2021/04/12 18:26:35 by jzeybel           #+#    #+#             */
+/*   Updated: 2021/04/17 23:33:04 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_del(void *data)
+void	ft_del(void *data)
 {
-    free(data);
-    data = NULL;
+	free(data);
+	data = NULL;
 }
