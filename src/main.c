@@ -6,7 +6,7 @@
 /*   By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 22:14:21 by jzeybel           #+#    #+#             */
-/*   Updated: 2021/04/29 17:57:52 by jzeybel          ###   ########.fr       */
+/*   Updated: 2021/05/23 18:19:52 by jzeybel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,11 @@ int	main(int ac, char	**av)
 	else
 		return (printf("Error : usage ./cub3d <map>.cub (--save)\n"));
 
+	init_player(&cub3d);
 	debug(&cub3d);
 
 	if (ft_error(&cub3d.parse))
 		return (printf("parse : map config is invalid\n"));
-	cub3d.ray.posX = 3;
-	cub3d.ray.posY = 3;
 	init_mlx(&cub3d);
 	init_img(&cub3d);
 	ft_hooks(&cub3d);

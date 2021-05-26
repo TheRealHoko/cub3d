@@ -6,7 +6,7 @@
 #    By: jzeybel <jzeybel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 18:10:22 by jzeybel           #+#    #+#              #
-#    Updated: 2021/04/07 22:12:53 by jzeybel          ###   ########.fr        #
+#    Updated: 2021/05/09 13:12:00 by jzeybel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,22 @@ SRC_DIR = src
 
 PARSE_DIR = parser
 
-RAY_DIR = raytracer
+ENGINE_DIR = engine
+
+MINIMAP_DIR = minimap
+
+HOOKS_DIR = hooks
 
 SRC = main.c \
 	  $(PARSE_DIR)/ft_parser.c \
 	  $(PARSE_DIR)/ft_res_texture_color.c \
 	  $(PARSE_DIR)/ft_checks.c \
 	  $(PARSE_DIR)/ft_error.c \
-	  $(RAY_DIR)/ray.c \
-	  $(RAY_DIR)/colors.c
+	  $(ENGINE_DIR)/ray.c \
+	  $(ENGINE_DIR)/colors.c \
+	  $(ENGINE_DIR)/line.c \
+	  $(HOOKS_DIR)/hooks.c \
+	  $(MINIMAP_DIR)/ft_minimap.c
 
 TMP = tmp
 
@@ -59,9 +66,10 @@ debug : DBRULE += debug
 debug : all
 
 $(TMP)/%.o : $(SRC_DIR)/%.c
-	mkdir -p $(TMP)
 	mkdir -p $(TMP)/$(PARSE_DIR)
-	mkdir -p $(TMP)/$(RAY_DIR)
+	mkdir -p $(TMP)/$(ENGINE_DIR)
+	mkdir -p $(TMP)/$(MINIMAP_DIR)
+	mkdir -p $(TMP)/$(HOOKS_DIR)
 	$(CC) $(CFLAGS) $(INC) -O3 -o $@ -c $<
 
 norm :
